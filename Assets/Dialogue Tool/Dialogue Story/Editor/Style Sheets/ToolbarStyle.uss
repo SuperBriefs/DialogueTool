@@ -3,6 +3,15 @@ Toolbar
 {
     background-color: var(--colors-dark-grey-5);
     height: var(--metrics-pixels-40);
+    padding: var(--metrics-pixels-4);
+
+    justify-content: space-between;
+}
+
+/* 工具栏 > 子元素 */
+Toolbar > VisualElement
+{
+	flex-direction: row;
 }
 
 /* -------------------------按钮 */
@@ -56,7 +65,19 @@ TextField:focus > .unity-text-field__label
 /* 文本字段 */
 TextField
 {
-    padding: var(--metrics-pixels-2);
+    min-width: var(--metrics-pixels-200);
+}
+
+/* 文本字段 > 标签 */
+TextField > Label
+{
+	min-width: 66px;
+
+	margin: var(--metrics-0);
+	padding: var(--metrics-0);
+
+	-unity-text-align: middle-center;
+	font-size: var(--metrics-pixels-14);
 }
 
 /* -------------------------输入框 */

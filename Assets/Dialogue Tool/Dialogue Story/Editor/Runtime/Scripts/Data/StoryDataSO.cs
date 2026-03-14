@@ -9,6 +9,7 @@ namespace E.Story
         [SerializeField] private string fileName;
         [SerializeField] private List<GroupData> groupDatas;
         [SerializeField] private List<NodeData> nodeDatas;
+        [SerializeField] private List<NoteData> noteDatas;
 
         // 文件名称
         public string FileName { get => fileName; set => fileName = value; }
@@ -19,6 +20,9 @@ namespace E.Story
         // 节点数据列表
         public List<NodeData> NodeDatas { get => nodeDatas; set => nodeDatas = value; }
         
+        // 标签数据列表
+        public List<NoteData> NoteDatas { get => noteDatas ; set => NoteDatas = value; }
+        
         /// <summary>
         /// 初始化
         /// </summary>
@@ -27,6 +31,7 @@ namespace E.Story
             this.fileName = fileName;
             groupDatas = new List<GroupData>();
             nodeDatas = new List<NodeData>();
+            noteDatas = new List<NoteData>();
         }
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   groupDatas:
   - title: "\u5206\u7EC4"
     guid: af27c35776ac8a444b864bede5cee49f
-    position: {x: 161.6, y: 93.600006}
+    position: {x: 161.60004, y: 93.60001}
   nodeDatas:
   - title: "\u5F00\u59CB"
     guid: aa3f95e5d366ec644960c37440578d13
@@ -53,3 +53,12 @@ MonoBehaviour:
     - text: 333
     - text: "\u65B0\u53E5\u5B50"
     - text: "\u65B0\u53E5\u5B50"
+  noteDatas:
+  - layout:
+      serializedVersion: 2
+      x: -98.4
+      y: -84
+      width: 200
+      height: 200
+    title: "\u4F60\u597D"
+    content: "\u8FD9\u662F\u4E00\u6761\u6D4B\u8BD5\u4FBF\u7B7E\n"

@@ -7,7 +7,8 @@ namespace E.Story
     [Serializable]
     public class CopyDatas
     {
-        public List<NodeData> nodeDatas = new();
-        public List<GroupData> groupDatas = new();
+        public List<NodeData> nodeDatas = new List<NodeData>();
+        public List<GroupData> groupDatas = new List<GroupData>();
+        public List<NoteData> noteDatas = new List<NoteData>();
     }
 }

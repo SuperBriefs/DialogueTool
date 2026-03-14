@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Android.Gradle;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -37,7 +38,7 @@ namespace E.Story{
             get
             {
                 // 遍历获取元素
-                List<BaseNode> baseNodes = new();
+                List<BaseNode> baseNodes = new List<BaseNode>();
                 nodes.ForEach(element =>
                 {
                     if (element is BaseNode node)
@@ -47,6 +48,24 @@ namespace E.Story{
                     }
                 });
                 return baseNodes;
+            }
+        }
+
+        public List<BaseNote> Notes
+        {
+            get
+            {
+                // 遍历获取元素
+                List<BaseNote> notes = new List<BaseNote>();
+                graphElements.ForEach(element =>
+                {
+                    if (element is BaseNote note)
+                    {
+                        notes.Add(note);
+                        return;
+                    }
+                });
+                return notes;
             }
         }
 
@@ -77,6 +96,10 @@ namespace E.Story{
             OnPasteElements();
         }
 
+        /// <summary>
+        /// 构建右键菜单
+        /// </summary>
+        /// <param name="evt"></param>
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
             base.BuildContextualMenu(evt);
@@ -97,6 +120,11 @@ namespace E.Story{
             evt.menu.AppendAction("添加分组", action =>
             {
                 CreateGroup("分组", GetLocalMousePosition(action.eventInfo.mousePosition));
+            });
+
+            evt.menu.AppendAction("添加便签", action =>
+            {
+                CreateNote("新便签", "", new Rect(GetLocalMousePosition(action.eventInfo.localMousePosition), new Vector2(200, 200)));
             });
         }
 
@@ -210,6 +238,20 @@ namespace E.Story{
         }
 
         /// <summary>
+        /// 创建便签
+        /// </summary>
+        /// <param name="title">标题</param>
+        /// <param name="contents">内容</param>
+        /// <param name="position">坐标</param>
+        /// <returns>便签</returns>
+        public BaseNote CreateNote(string title, string contents, Rect layout)
+        {
+            BaseNote note = new(title, contents, layout);
+            AddElement(note);
+            return note;
+        }
+
+        /// <summary>
         /// 添加默认节点
         /// </summary>
         public void AddDefaultNodes()
@@ -307,6 +349,11 @@ namespace E.Story{
                         {
                             OnDeleteEdge(edge);
                         }
+                        // 如果是便签
+                        else if (element is BaseNote note)
+                        {
+                            OnDeleteNote(note);
+                        }
                     }
                 }
 
@@ -370,6 +417,11 @@ namespace E.Story{
                     else if(element is Edge edge)
                     {
                         readyToDelete.Add(edge);
+                    }
+                    // 如果是便签
+                    else if(element is BaseNote note)
+                    {
+                        readyToDelete.Add(note);
                     }
                 }
 
@@ -506,6 +558,15 @@ namespace E.Story{
         }
         
         /// <summary>
+        /// 即将删除便签时
+        /// </summary>
+        /// <param name="note">将被删除的便签</param>
+        public void OnDeleteNote(BaseNote note)
+        {
+            Debug.Log("正在删除便签");
+        }
+
+        /// <summary>
         /// 当复制元素时
         /// </summary>
         private void OnCopyElements()
@@ -527,11 +588,17 @@ namespace E.Story{
                         NodeData nodeData = node.GetNodeData();
                         copyDatas.nodeDatas.Add(nodeData);
                     }
-                    // 检测是否分组
+                    // 检测是否是分组
                     else if(element is BaseGroup group)
                     {
                         GroupData groupData = group.GetGroupData();
                         copyDatas.groupDatas.Add(groupData);
+                    }
+                    // 检测是否是便签
+                    else if(element is BaseNote note)
+                    {
+                        NoteData noteData = note.GetNoteData();
+                        copyDatas.noteDatas.Add(noteData);
                     }
                 }
 
@@ -651,6 +718,15 @@ namespace E.Story{
                         CreateEdge(outputPort, nextNodeInputPort);
                     }
                     node.RefreshPorts();
+                }
+
+                // 遍历所有便签数据，创建便签
+                foreach(NoteData noteData in copyDatas.noteDatas)
+                {
+                    // 偏移位置
+                    Vector2 newPosition = noteData.Layout.position + new Vector2(50, 50);
+                    // 创建便签
+                    BaseNote note = CreateNote(noteData.Title, noteData.Content, new Rect(newPosition, noteData.Layout.size));
                 }
             };
         }

@@ -34,6 +34,9 @@ namespace E.Story{
 
         // UI元素
         private Toolbar toolbar;
+        private VisualElement panLeft;
+        private VisualElement panCenter;
+        private VisualElement panRight;
         private static TextField tfdFileName;
         private Button btnSave;
         private Button btnOpen;
@@ -86,13 +89,24 @@ namespace E.Story{
             // 创建工具栏
             toolbar = new Toolbar();
 
+            // 创建分组
+            panLeft = new VisualElement();
+            panCenter = new VisualElement();
+            panRight = new VisualElement();
+
             // 将UI元素添加进工具栏
-            toolbar.Add(tfdFileName);
-            toolbar.Add(btnSave);
-            toolbar.Add(btnOpen);
-            toolbar.Add(btnNew);
-            toolbar.Add(btnClear);
-            toolbar.Add(btnMiniMap);
+            panLeft.Add(btnOpen);
+            panLeft.Add(btnNew);
+
+            panCenter.Add(tfdFileName);
+            panCenter.Add(btnSave);
+            panCenter.Add(btnClear);
+
+            panRight.Add(btnMiniMap);
+
+            toolbar.Add(panLeft);
+            toolbar.Add(panCenter);
+            toolbar.Add(panRight);
 
             // 将工具栏加入窗口
             rootVisualElement.Add(toolbar);
@@ -339,6 +353,7 @@ namespace E.Story{
         {
             SaveGroupDatas(graphView.Groups);
             SaveNodeDatas(graphView.Nodes);
+            SaveNoteDatas(graphView.Notes);
 
             // 写入硬盘
             IOUtility.SaveAsset(storyData);
@@ -377,6 +392,22 @@ namespace E.Story{
         }
 
         /// <summary>
+        /// 保存便签数据
+        /// </summary>
+        /// <param name="notes"></param>
+        private void SaveNoteDatas(List<BaseNote> notes)
+        {
+            // 遍历节点列表
+            foreach (BaseNote note in notes)
+            {
+                // 创建节点数据
+                NoteData noteData = note.GetNoteData();
+                // 加入列表
+                storyData.NoteDatas.Add(noteData);
+            }
+        }
+
+        /// <summary>
         /// 载入数据
         /// </summary>
         /// <param name="storyData"></param>
@@ -386,6 +417,7 @@ namespace E.Story{
             Dictionary<string, BaseGroup> loadedGroups = LoadGroupDatas(storyData.GroupDatas);
             Dictionary<string, BaseNode> loadedNodes = LoadNodeDatas(storyData.NodeDatas, loadedGroups);
             LoadNodesConnections(loadedNodes);
+            LoadNoteDatas(storyData.NoteDatas);
         }
 
         /// <summary>
@@ -494,7 +526,20 @@ namespace E.Story{
                 loadedNode.Value.RefreshPorts();
             }
         }
-    
+        
+        /// <summary>
+        /// 载入便签数据
+        /// </summary>
+        /// <param name="notes"></param>
+        private void LoadNoteDatas(List<NoteData> notes)
+        {
+            // 遍历便签数据列表
+            foreach(NoteData note in notes)
+            {
+                graphView.CreateNote(note.Title, note.Content, note.Layout);
+            }
+        }
+
         /// <summary>
         /// 当窗口即将销毁时调用
         /// </summary>
