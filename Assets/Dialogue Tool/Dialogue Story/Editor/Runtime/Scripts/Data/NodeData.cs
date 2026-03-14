@@ -17,6 +17,8 @@ namespace E.Story
         [SerializeField] private List<ChoiceData> choiceDatas;
         [SerializeField] private string groupID;
 
+        [SerializeField] private Sprite bgi;
+        [SerializeField] private Sprite portrait; //TODO：给对话节点添加玩家立绘
         [SerializeField] private string roleName;
         [SerializeField] private List<SentenceData> sentenceDatas;
 
@@ -41,6 +43,12 @@ namespace E.Story
 
         // 所属分组GUID
         public string GroupID { get => groupID; set => groupID = value; }
+
+        // 背景图片
+        public Sprite BGI { get => bgi; set => bgi = value; }
+
+        // 立绘
+        public Sprite Portrait { get => portrait; set => portrait = value; }
 
         // 节点角色名称
         public string RoleName { get => roleName; set => roleName = value; }

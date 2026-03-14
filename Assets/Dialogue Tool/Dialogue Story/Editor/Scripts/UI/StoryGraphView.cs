@@ -663,6 +663,11 @@ namespace E.Story{
                         dNode.RoleName = nodeData.RoleName;
                         dNode.SentenceDatas = DataUtility.CloneSentenceDatas(nodeData.SentenceDatas);
                     }
+                    else if(node.Type == NodeType.BGI)
+                    {
+                        BGINode bNode = node as BGINode;
+                        bNode.BGI = nodeData.BGI;
+                    }
 
                     // 绘制节点
                     node.Draw();

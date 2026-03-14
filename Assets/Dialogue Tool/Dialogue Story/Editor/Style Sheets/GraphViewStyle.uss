@@ -287,6 +287,32 @@ Button:active
     padding: var(--metrics-pixels-4);
 }
 
+/* ----其它字段---- */
+
+/* 背景图片 */
+.bgi-image
+{
+    max-width: var(--metrics-pixels-320);
+    max-height: var(--metrics-pixels-180);
+	border-radius: var(--metrics-pixels-4);
+	overflow: hidden;
+}
+
+/* 角色立绘 */
+.portrait-image
+{
+	width: 57px;
+	height: 57px;
+}
+
+/* 图像边框 */
+.img-border
+{
+	border-color: var(--colors-dark-grey-1);
+	border-width: var(--metrics-pixels-1);
+	border-radius: var(--metrics-pixels-4);
+}
+
 /* -------------------------------------------------------附加样式 */
 
 /* 错误（边框） */

@@ -31,6 +31,8 @@ namespace E.Story
         End = 31,
         // 对话
         Dialogue = 51,
+        // 背景图片
+        BGI = 52,
         // 分支
         Branch = 61,
     }

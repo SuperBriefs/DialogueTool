@@ -1,5 +1,7 @@
 using System;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace E.Story{
@@ -59,6 +61,46 @@ namespace E.Story{
             TextField textArea = CreateTextField(value, label, onValueChanged);
             textArea.multiline = true;
             return textArea;
+        }
+
+        /// <summary>
+        /// 创建对象选择字段
+        /// </summary>
+        /// <param name="type">对象类型</param>
+        /// <param name="obj">对象默认值</param>
+        /// <param name="label">标签</param>
+        /// <param name="onValueChanged">值变化事件</param>
+        /// <returns>对象选择字段</returns>
+        public static ObjectField CreateObjectField(Type type, UnityEngine.Object obj, string label = null, EventCallback<ChangeEvent<UnityEngine.Object>> onValueChanged = null)
+        {
+            ObjectField field = new ObjectField(label)
+            {
+                objectType = type,
+                allowSceneObjects = false,
+                value = obj
+            };
+
+            if (onValueChanged != null)
+            {
+                field.RegisterValueChangedCallback(onValueChanged);
+            }
+
+            return field;
+        }
+
+        /// <summary>
+        /// 创建图片预览区域
+        /// </summary>
+        /// <param name="sprite">图片</param>
+        /// <returns>图片预览区域</returns>
+        public static Image CreateaImage(Sprite sprite)
+        {
+            Image image = new Image()
+            {
+                sprite = sprite,
+            };
+
+            return image;
         }
         
         /// <summary>

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace E.Story
 {
+    // 节点对话框
     public class NodeCreationBox : ScriptableObject, ISearchWindowProvider
     {
         private StoryGraphView graphViewer;
@@ -61,6 +62,11 @@ namespace E.Story
                     level = 1,
                     userData = NodeType.Branch
                 },
+                new SearchTreeEntry(new GUIContent("背景图片", indentationIcon))
+                {
+                    level = 1,
+                    userData = NodeType.BGI
+                },
                 new SearchTreeEntry(new GUIContent("开始", indentationIcon))
                 {
                     level = 1,
@@ -95,6 +101,7 @@ namespace E.Story
                 // case NodeType.SingleInZeroOut:
                 case NodeType.Dialogue:
                 case NodeType.Branch:
+                case NodeType.BGI:
                 case NodeType.Start:
                 case NodeType.End:
                     graphViewer.CreateNode(SearchTreeEntry.content.text, type, localMousePosition);
