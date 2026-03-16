@@ -31,7 +31,7 @@ namespace E.Story
             }
         }
 
-        protected override void DrawExtensionContainer()
+        public override void DrawExtensionContainer()
         {
             // 创建添加选项按钮
             Button btnAdd = ElementUtility.CreateButton("添加选项", () =>

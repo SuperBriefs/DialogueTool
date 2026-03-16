@@ -31,7 +31,7 @@ namespace E.Story
             }
         }
 
-        protected override void DrawExtensionContainer()
+        public override void DrawExtensionContainer()
         {
             // 创建自定义容器
             customDataContainer = new VisualElement();
@@ -177,6 +177,9 @@ namespace E.Story
                     break;
                 }
             }
+
+            // 删除该端口上的连线
+            DisconnectPort(portToRemove);
 
             // 删除多余端口
             outputContainer.Remove(portToRemove);

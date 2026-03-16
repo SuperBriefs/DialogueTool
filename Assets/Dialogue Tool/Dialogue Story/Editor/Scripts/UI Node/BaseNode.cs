@@ -172,7 +172,7 @@ namespace E.Story{
         /// <summary>
         /// 绘制拓展容器
         /// </summary>
-        protected virtual void DrawExtensionContainer()
+        public virtual void DrawExtensionContainer()
         {
             // 创建自定义容器
             customDataContainer = new VisualElement();

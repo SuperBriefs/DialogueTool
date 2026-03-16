@@ -43,5 +43,54 @@ namespace E.Story
 
             return newDatas;
         }
+
+        /// <summary>
+        /// 克隆变量数据列表
+        /// </summary>
+        /// <param name="oldDatas">变量数据列表</param>
+        /// <returns>变量数据列表</returns>
+        public static List<VarData> CloneVarDatas(List<VarData> oldDatas)
+        {
+            if(oldDatas == null)
+            {
+                return null;
+            }
+
+            List<VarData> newDatas = new List<VarData>();
+            foreach(VarData data in oldDatas)
+            {
+                VarData newData = new VarData(data.Key, data.Value);
+                newDatas.Add(newData);
+            }
+
+            return newDatas;
+        }
+        
+        /// <summary>
+        /// 克隆编辑变量列表数据
+        /// </summary>
+        /// <param name="oldDatas"></param>
+        /// <returns></returns>
+        public static List<EditVarData> CloneEditVarDatas(List<EditVarData> oldDatas)
+        {
+            if(oldDatas == null)
+            {
+                return null;
+            }
+
+            List<EditVarData> newDatas = new List<EditVarData>();
+            foreach(EditVarData data in oldDatas)
+            {
+                EditVarData newData = new EditVarData
+                {
+                    VarIndex = data.VarIndex,
+                    Value = data.Value,
+                    Operation = data.Operation,
+                };
+                newDatas.Add(newData);
+            }
+
+            return newDatas;
+        }
     }
 }

@@ -42,6 +42,7 @@ namespace E.Story{
         private Button btnOpen;
         private Button btnNew;
         private Button btnClear;
+        private Button btnVars;
         private Button btnMiniMap;
 
         [MenuItem("Dialogue Tool/打开 Dialogue Story 对话编辑器 %&#")]
@@ -84,6 +85,7 @@ namespace E.Story{
             btnOpen = ElementUtility.CreateButton("打开", () => OpenStory());
             btnNew = ElementUtility.CreateButton("新建", () => NewStory());
             btnClear = ElementUtility.CreateButton("清空", () => ClearGraphAndCreateDefaultDatas());
+            btnVars = ElementUtility.CreateButton("变量面板", () => ToggleVarPanel());
             btnMiniMap = ElementUtility.CreateButton("小地图", () => ToggleMinMap());
 
             // 创建工具栏
@@ -102,6 +104,7 @@ namespace E.Story{
             panCenter.Add(btnSave);
             panCenter.Add(btnClear);
 
+            panRight.Add(btnVars);
             panRight.Add(btnMiniMap);
 
             toolbar.Add(panLeft);
@@ -304,6 +307,7 @@ namespace E.Story{
             {
                 graphView.ClearGraph();
                 graphView.AddDefaultNodes();
+                graphView.AddDefaultVarData();
                 // 重置文件名
                 UpdateFileName(defaultFileName);
 
@@ -339,6 +343,17 @@ namespace E.Story{
         }
 
         /// <summary>
+        /// 切换变量面板
+        /// </summary>
+
+        private void ToggleVarPanel()
+        {
+            graphView.ToggleVarPanel();
+            // 切换按钮样式
+            btnVars.ToggleInClassList("toolbar__button__selected");
+        }
+
+        /// <summary>
         /// 记录当前的故事
         /// </summary>
         private void RecordCurrentStory()
@@ -353,6 +368,7 @@ namespace E.Story{
         {
             SaveGroupDatas(graphView.Groups);
             SaveNodeDatas(graphView.Nodes);
+            SaveVarDatas(graphView.Vars);
             SaveNoteDatas(graphView.Notes);
 
             // 写入硬盘
@@ -392,6 +408,15 @@ namespace E.Story{
         }
 
         /// <summary>
+        /// 保存变量数据
+        /// </summary>
+        /// <param name="vars"></param>
+        private void SaveVarDatas(List<VarData> vars)
+        {
+            storyData.VarDatas = DataUtility.CloneVarDatas(vars);
+        }
+
+        /// <summary>
         /// 保存便签数据
         /// </summary>
         /// <param name="notes"></param>
@@ -414,6 +439,7 @@ namespace E.Story{
         private void LoadDatas(StoryDataSO storyData)
         {
             UpdateFileName(storyData.FileName);
+            LoadVarDatas(storyData.VarDatas);
             Dictionary<string, BaseGroup> loadedGroups = LoadGroupDatas(storyData.GroupDatas);
             Dictionary<string, BaseNode> loadedNodes = LoadNodeDatas(storyData.NodeDatas, loadedGroups);
             LoadNodesConnections(loadedNodes);
@@ -483,6 +509,11 @@ namespace E.Story{
                     BGINode bNode = node as BGINode;
                     bNode.BGI = nodeData.BGI;
                 }
+                else if(node.Type == NodeType.EditVar)
+                {
+                    EditVarNode eNode = node as EditVarNode;
+                    eNode.EditVarDatas = DataUtility.CloneEditVarDatas(nodeData.EditVarDatas);
+                }
 
                 // 绘制节点
                 node.Draw();
@@ -533,6 +564,16 @@ namespace E.Story{
             }
         }
         
+        /// <summary>
+        /// 载入变量数据
+        /// </summary>
+        /// <param name="oldVarDatas"></param>
+        private void LoadVarDatas(List<VarData> oldVarDatas)
+        {
+            List<VarData> newVarDatas = DataUtility.CloneVarDatas(oldVarDatas);
+            graphView.VarPanel.SetVarDatas(newVarDatas);
+        }
+
         /// <summary>
         /// 载入便签数据
         /// </summary>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -7,6 +8,17 @@ using UnityEngine.UIElements;
 namespace E.Story{
     public static class ElementUtility
     {
+        /// <summary>
+        /// 创建标签
+        /// </summary>
+        /// <param name="text">文本</param>
+        /// <returns>标签</returns>
+        public static Label CreateLabel(string text)
+        {
+            Label label = new(text);
+            return label;
+        }
+
         /// <summary>
         /// 创建按钮
         /// </summary>
@@ -61,6 +73,86 @@ namespace E.Story{
             TextField textArea = CreateTextField(value, label, onValueChanged);
             textArea.multiline = true;
             return textArea;
+        }
+
+        /// <summary>
+        /// 创建整数字段
+        /// </summary>
+        /// <param name="value">值</param>
+        /// <param name="label">标签</param>
+        /// <param name="onValueChanged">值变化事件</param>
+        /// <returns></returns>
+        public static IntegerField CreateIntField(int value = 0, string label = null, EventCallback<ChangeEvent<int>> onValueChanged = null)
+        {
+            IntegerField field = new IntegerField()
+            {
+                value = value,
+                label = label,
+            };
+
+            if(onValueChanged != null)
+            {
+                field.RegisterValueChangedCallback(onValueChanged);
+            }
+
+            return field;
+        }
+
+        /// <summary>
+        /// 创建下拉菜单字段
+        /// </summary>
+        /// <param name="choices">选项列表</param>
+        /// <param name="defaultIndex">默认索引值</param>
+        /// <param name="onValueChanged">值变化事件</param>
+        /// <returns>下拉菜单字段</returns>
+        public static PopupField<string> CreatePopupField(List<string> choices, int defaultIndex, EventCallback<ChangeEvent<string>> onValueChanged = null)
+        {
+            PopupField<string> field = new PopupField<string>(choices, defaultIndex);
+
+            if(onValueChanged != null)
+            {
+                field.RegisterValueChangedCallback(onValueChanged);
+            }
+
+            return field;
+        }
+
+        /// <summary>
+        /// 创建下拉菜单字段
+        /// </summary>
+        /// <param name="choices">选项列表</param>
+        /// <param name="defaultIndex">默认索引值</param>
+        /// <param name="onValueChanged">值变化事件</param>
+        /// <returns>下拉菜单字段</returns>
+        public static PopupField<string> CreatePopupField(List<string> choices, string defaultValue, EventCallback<ChangeEvent<string>> onValueChanged = null)
+        {
+            PopupField<string> field = new PopupField<string>(choices, defaultValue);
+
+            if(onValueChanged != null)
+            {
+                field.RegisterValueChangedCallback(onValueChanged);
+            }
+
+            return field;
+        }
+
+        /// <summary>
+        /// 创建枚举下拉字段
+        /// </summary>
+        /// <param name="defaultValue">默认值</param>
+        /// <param name="label">标签</param>
+        /// <param name="onValueChanged">值变化事件</param>
+        /// <returns>枚举下拉字段</returns>
+        public static EnumField CreateEnumField(Enum defaultValue, string label = null, EventCallback<ChangeEvent<Enum>> onValueChanged = null)
+        {
+            EnumField field = new EnumField(label, defaultValue);
+
+            if(onValueChanged != null)
+            {
+                field.RegisterValueChangedCallback(onValueChanged);
+            }
+
+            return field;
         }
 
         /// <summary>

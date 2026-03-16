@@ -21,6 +21,7 @@ namespace E.Story
         [SerializeField] private Sprite portrait; //TODO：给对话节点添加玩家立绘
         [SerializeField] private string roleName;
         [SerializeField] private List<SentenceData> sentenceDatas;
+        [SerializeField] private List<EditVarData> editVarDatas;
 
 
         // 节点标题
@@ -55,5 +56,8 @@ namespace E.Story
 
         // 句子列表
         public List<SentenceData> SentenceDatas { get => sentenceDatas; set => sentenceDatas = value; }
+
+        // 编辑变量列表
+        public List<EditVarData> EditVarDatas { get => editVarDatas; set => editVarDatas = value; }
     }
 }

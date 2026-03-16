@@ -14,6 +14,9 @@ namespace E.Story{
         private StoryEditorWindow storyEditorWindow;
         private NodeCreationBox nodeCreationBox;
         private NavMap miniMap;
+        private VarPanel varPanel;
+
+        public VarPanel VarPanel { get => varPanel; }
 
         public List<BaseGroup> Groups
         {
@@ -51,6 +54,11 @@ namespace E.Story{
             }
         }
 
+        public List<VarData> Vars
+        {
+            get => VarPanel.VarDatas;
+        }
+
         public List<BaseNote> Notes
         {
             get
@@ -81,9 +89,9 @@ namespace E.Story{
             //调用方法
             AddGridBackground();
             AddManipulators();
-            AddDefaultNodes();
             AddNodeCreationBox();
             AddMiniMap();
+            AddVarPanel();
 
             // 定义事件
             OnOpenNodeCreationBox();
@@ -94,6 +102,10 @@ namespace E.Story{
             OnGroupRename();
             OnCopyElements();
             OnPasteElements();
+
+            // 添加默认数据
+            AddDefaultNodes();
+            AddDefaultVarData();
         }
 
         /// <summary>
@@ -261,6 +273,20 @@ namespace E.Story{
         }
 
         /// <summary>
+        /// 添加默认变量
+        /// </summary>
+        public void AddDefaultVarData()
+        {
+            VarData varData1 = new VarData("变量一");
+            VarData varData2 = new VarData("变量二");
+            VarData varData3 = new VarData("变量三");
+            varPanel.VarDatas.Add(varData1);
+            varPanel.VarDatas.Add(varData2);
+            varPanel.VarDatas.Add(varData3);
+            varPanel.Draw();
+        }
+
+        /// <summary>
         /// 添加节点对话框
         /// </summary>
         private void AddNodeCreationBox()
@@ -279,6 +305,18 @@ namespace E.Story{
             miniMap.SetPosition(new(15, 10, 200, 200));
 
             Add(miniMap);
+        }
+
+        /// <summary>
+        /// 添加变量面板
+        /// </summary>
+        private void AddVarPanel()
+        {
+            varPanel = new VarPanel();
+            varPanel.Init(this);
+            varPanel.Draw();
+
+            Add(varPanel);
         }
 
         /// <summary>
@@ -669,6 +707,11 @@ namespace E.Story{
                         BGINode bNode = node as BGINode;
                         bNode.BGI = nodeData.BGI;
                     }
+                    else if(node.Type == NodeType.EditVar)
+                    {
+                        EditVarNode eNode = node as EditVarNode;
+                        eNode.EditVarDatas = DataUtility.CloneEditVarDatas(nodeData.EditVarDatas);
+                    }
 
                     // 绘制节点
                     node.Draw();
@@ -766,6 +809,8 @@ namespace E.Story{
         public void ClearGraph()
         {
             graphElements.ForEach(e => RemoveElement(e));
+
+            varPanel.ClearPanel();
         }
 
         /// <summary>
@@ -774,6 +819,37 @@ namespace E.Story{
         public void ToggleMinMap()
         {
             miniMap.visible = !miniMap.visible;
+        }
+
+        /// <summary>
+        /// 切换变量面板
+        /// </summary>
+        public void ToggleVarPanel()
+        {
+            varPanel.visible = !varPanel.visible;
+        }
+
+        /// <summary>
+        /// 当变量数据更新时，更新视图
+        /// </summary>
+        public void OnEditVarDatas()
+        {
+            // 获取需要重绘的节点
+            List<BaseNode> nodesToReDraw = new List<BaseNode>();
+            nodes.ForEach(node =>
+            {
+                if(node is EditVarNode || node is BranchNode)
+                {
+                    nodesToReDraw.Add((BaseNode)node);
+                    return;
+                }
+            });
+
+            // 重绘节点
+            foreach(BaseNode node in nodesToReDraw)
+            {
+                node.DrawExtensionContainer();
+            }
         }
     }
 }

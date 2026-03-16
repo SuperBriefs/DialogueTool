@@ -33,6 +33,8 @@ namespace E.Story
         Dialogue = 51,
         // 背景图片
         BGI = 52,
+        // 编辑变量
+        EditVar = 53,
         // 布局
         Layout = 59,
         // 分支

@@ -17,7 +17,7 @@ namespace E.Story
             Type = NodeType.BGI;
         }
 
-        protected override void DrawExtensionContainer()
+        public override void DrawExtensionContainer()
         {
             // 创建自定义容器
             customDataContainer = new();

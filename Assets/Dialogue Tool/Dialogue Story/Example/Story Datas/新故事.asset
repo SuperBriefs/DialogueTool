@@ -16,7 +16,7 @@ MonoBehaviour:
   groupDatas:
   - title: "\u5206\u7EC4"
     guid: af27c35776ac8a444b864bede5cee49f
-    position: {x: 161.6, y: 93.60001}
+    position: {x: 161.59998, y: 93.600006}
   nodeDatas:
   - title: "\u5F00\u59CB"
     guid: aa3f95e5d366ec644960c37440578d13
@@ -31,6 +31,7 @@ MonoBehaviour:
     portrait: {fileID: 0}
     roleName: 
     sentenceDatas: []
+    editVarDatas: []
   - title: "\u7ED3\u675F"
     guid: 6f40ad1c0d7e3af4d8773a807292dabb
     type: 31
@@ -42,6 +43,7 @@ MonoBehaviour:
     portrait: {fileID: 0}
     roleName: 
     sentenceDatas: []
+    editVarDatas: []
   - title: "\u80CC\u666F\u56FE\u7247"
     guid: 40760115f8c19bf4480db2132c23ac5b
     type: 52
@@ -55,6 +57,7 @@ MonoBehaviour:
     portrait: {fileID: 0}
     roleName: 
     sentenceDatas: []
+    editVarDatas: []
   - title: "\u7ED3\u675F"
     guid: d44d7fc60cda6014eac0109920e32acc
     type: 31
@@ -66,6 +69,7 @@ MonoBehaviour:
     portrait: {fileID: 0}
     roleName: 
     sentenceDatas: []
+    editVarDatas: []
   - title: "\u5BF9\u8BDD"
     guid: 38de825aa098052429785e216a8bf5c0
     type: 51
@@ -80,6 +84,7 @@ MonoBehaviour:
     roleName: "\u89D2\u8272\u540D\u79F0"
     sentenceDatas:
     - text: "\u53D1\u8A00\u5185\u5BB9"
+    editVarDatas: []
   - title: "\u5E03\u5C40"
     guid: 76772862c92589b42b978521fc895793
     type: 59
@@ -93,6 +98,7 @@ MonoBehaviour:
     portrait: {fileID: 0}
     roleName: 
     sentenceDatas: []
+    editVarDatas: []
   - title: "\u5BF9\u8BDD"
     guid: 085ff21074065024394e96166b6d15f7
     type: 51
@@ -110,6 +116,50 @@ MonoBehaviour:
     - text: 333
     - text: "\u65B0\u53E5\u5B50"
     - text: "\u65B0\u53E5\u5B50"
+    editVarDatas: []
+  - title: "\u5206\u652F"
+    guid: 2e55cef7acce58e47bb15ae27c42ffe8
+    type: 61
+    position: {x: 774.4, y: 81.600006}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u9009\u9879\u6587\u672C\u4E00"
+      nextNodeID: 01d0ed26d11ea6e418aa0f097d14b8ec
+    - text: "\u9009\u9879\u6587\u672C\u4E8C"
+      nextNodeID: 
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+  - title: "\u7F16\u8F91\u53D8\u91CF"
+    guid: 01d0ed26d11ea6e418aa0f097d14b8ec
+    type: 53
+    position: {x: 1039.2, y: 81.600006}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas:
+    - varIndex: 1
+      value: 2
+      operation: 1
+    - varIndex: 0
+      value: 0
+      operation: 0
+  varDatas:
+  - key: "\u6D4B\u8BD5\u53D8\u91CF\u4E00"
+    value: 1
+  - key: "\u6D4B\u8BD5\u53D8\u91CF\u4E8C"
+    value: 2
+  - key: "\u6D4B\u8BD5\u53D8\u91CF\u4E09"
+    value: 3
   noteDatas:
   - layout:
       serializedVersion: 2

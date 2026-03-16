@@ -67,6 +67,11 @@ namespace E.Story
                     level = 1,
                     userData = NodeType.BGI
                 },
+                new SearchTreeEntry(new GUIContent("编辑变量", indentationIcon))
+                {
+                    level = 1,
+                    userData = NodeType.EditVar
+                },
                 new SearchTreeEntry(new GUIContent("开始", indentationIcon))
                 {
                     level = 1,
@@ -107,6 +112,7 @@ namespace E.Story
                 case NodeType.Dialogue:
                 case NodeType.Branch:
                 case NodeType.BGI:
+                case NodeType.EditVar:
                 case NodeType.Start:
                 case NodeType.End:
                 case NodeType.Layout:
