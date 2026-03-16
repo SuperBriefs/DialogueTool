@@ -16,7 +16,7 @@ MonoBehaviour:
   groupDatas:
   - title: "\u5206\u7EC4"
     guid: af27c35776ac8a444b864bede5cee49f
-    position: {x: 161.6, y: 93.600006}
+    position: {x: 161.6, y: 93.60001}
   nodeDatas:
   - title: "\u5F00\u59CB"
     guid: aa3f95e5d366ec644960c37440578d13
@@ -42,23 +42,6 @@ MonoBehaviour:
     portrait: {fileID: 0}
     roleName: 
     sentenceDatas: []
-  - title: "\u5BF9\u8BDD"
-    guid: 085ff21074065024394e96166b6d15f7
-    type: 51
-    position: {x: 187.2, y: 156.8}
-    note: "\u5907\u6CE8\u4FE1\u606F"
-    choiceDatas:
-    - text: "\u4E0B\u4E2A\u8282\u70B9"
-      nextNodeID: 6f40ad1c0d7e3af4d8773a807292dabb
-    groupID: af27c35776ac8a444b864bede5cee49f
-    bgi: {fileID: 0}
-    portrait: {fileID: 0}
-    roleName: 111
-    sentenceDatas:
-    - text: 222
-    - text: 333
-    - text: "\u65B0\u53E5\u5B50"
-    - text: "\u65B0\u53E5\u5B50"
   - title: "\u80CC\u666F\u56FE\u7247"
     guid: 40760115f8c19bf4480db2132c23ac5b
     type: 52
@@ -72,6 +55,61 @@ MonoBehaviour:
     portrait: {fileID: 0}
     roleName: 
     sentenceDatas: []
+  - title: "\u7ED3\u675F"
+    guid: d44d7fc60cda6014eac0109920e32acc
+    type: 31
+    position: {x: 695.2, y: -116}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+  - title: "\u5BF9\u8BDD"
+    guid: 38de825aa098052429785e216a8bf5c0
+    type: 51
+    position: {x: 187.2, y: -151.2}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 76772862c92589b42b978521fc895793
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: "\u89D2\u8272\u540D\u79F0"
+    sentenceDatas:
+    - text: "\u53D1\u8A00\u5185\u5BB9"
+  - title: "\u5E03\u5C40"
+    guid: 76772862c92589b42b978521fc895793
+    type: 59
+    position: {x: 430.4, y: -121.6}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: d44d7fc60cda6014eac0109920e32acc
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+  - title: "\u5BF9\u8BDD"
+    guid: 085ff21074065024394e96166b6d15f7
+    type: 51
+    position: {x: 187.2, y: 156.8}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 6f40ad1c0d7e3af4d8773a807292dabb
+    groupID: af27c35776ac8a444b864bede5cee49f
+    bgi: {fileID: 0}
+    portrait: {fileID: 21300000, guid: 49dc8b28b79610d4b83724277d910aec, type: 3}
+    roleName: 111
+    sentenceDatas:
+    - text: 222
+    - text: 333
+    - text: "\u65B0\u53E5\u5B50"
+    - text: "\u65B0\u53E5\u5B50"
   noteDatas:
   - layout:
       serializedVersion: 2

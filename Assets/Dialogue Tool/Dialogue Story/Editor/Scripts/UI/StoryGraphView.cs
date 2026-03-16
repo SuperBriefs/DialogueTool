@@ -661,6 +661,7 @@ namespace E.Story{
                     {
                         DialogueNode dNode = node as DialogueNode;
                         dNode.RoleName = nodeData.RoleName;
+                        dNode.Portrait = nodeData.Portrait;
                         dNode.SentenceDatas = DataUtility.CloneSentenceDatas(nodeData.SentenceDatas);
                     }
                     else if(node.Type == NodeType.BGI)

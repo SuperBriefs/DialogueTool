@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,6 +11,9 @@ namespace E.Story
     {
         // 角色名称
         public string RoleName { get; set; }
+
+        // 角色立绘
+        public Sprite Portrait { get; set; }
 
         // 句子列表
         public List<SentenceData> SentenceDatas { get; set; }
@@ -43,9 +47,20 @@ namespace E.Story
                 RoleName = callback.newValue;
             });
 
+            // 创建角色立绘预览
+            Image imgPortrait = ElementUtility.CreateaImage(Portrait);
+            // 创建角色立绘选择字段
+            ObjectField objPortrait = ElementUtility.CreateObjectField(typeof(Sprite), Portrait, null, (callback) =>
+            {
+                Portrait = callback.newValue as Sprite;
+                imgPortrait.sprite = Portrait;
+            });
+
             // 放置UI元素
             roleInfoColContainer.Add(tfdRoleName);
+            roleInfoColContainer.Add(objPortrait);
             roleInfoRowContainer.Add(roleInfoColContainer);
+            roleInfoRowContainer.Add(imgPortrait);
             foldout.Add(roleInfoRowContainer);
 
             // 创建添加按钮
@@ -171,6 +186,7 @@ namespace E.Story
                 ChoiceDatas = choiceDatas,
                 GroupID = Group?.ID,
                 RoleName = RoleName,
+                Portrait = Portrait,
                 SentenceDatas = SentenceDatas
             };
 

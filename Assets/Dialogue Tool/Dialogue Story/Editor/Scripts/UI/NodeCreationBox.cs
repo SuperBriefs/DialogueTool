@@ -77,6 +77,11 @@ namespace E.Story
                     level = 1,
                     userData = NodeType.End
                 },
+                new SearchTreeEntry(new GUIContent("布局", indentationIcon))
+                {
+                    level = 1,
+                    userData = NodeType.Layout
+                },
             };
 
             return searchTreeEntries;
@@ -104,6 +109,7 @@ namespace E.Story
                 case NodeType.BGI:
                 case NodeType.Start:
                 case NodeType.End:
+                case NodeType.Layout:
                     graphViewer.CreateNode(SearchTreeEntry.content.text, type, localMousePosition);
                     return true;
                 default:
