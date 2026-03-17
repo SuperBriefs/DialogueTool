@@ -14,6 +14,13 @@ namespace E.Story{
         private StoryEditorWindow storyEditorWindow;
         private NodeCreationBox nodeCreationBox;
         private NavMap miniMap;
+
+        private Label lblVarCount;
+        private Label lblNodeCount;
+        private Label lblGroupCount;
+        private Label lblNoteCount;
+        private Label lblScale;
+
         private VarPanel varPanel;
 
         public VarPanel VarPanel { get => varPanel; }
@@ -92,6 +99,7 @@ namespace E.Story{
             AddNodeCreationBox();
             AddMiniMap();
             AddVarPanel();
+            AddStoryInfo();
 
             // 定义事件
             OnOpenNodeCreationBox();
@@ -317,6 +325,32 @@ namespace E.Story{
             varPanel.Draw();
 
             Add(varPanel);
+        }
+
+        /// <summary>
+        /// 添加故事数据
+        /// </summary>
+        private void AddStoryInfo()
+        {
+            VisualElement panInfo = new VisualElement();
+            VisualElement panStoryInfo = new VisualElement();
+            lblVarCount = new Label();
+            lblNodeCount = new Label();
+            lblGroupCount = new Label();
+            lblNoteCount = new Label();
+            lblScale = new Label();
+
+            panStoryInfo.Add(lblVarCount);
+            panStoryInfo.Add(lblNodeCount);
+            panStoryInfo.Add(lblGroupCount);
+            panStoryInfo.Add(lblNoteCount);
+            panStoryInfo.Add(lblScale);
+
+            panInfo.Add(panStoryInfo);
+            Add(panInfo);
+
+            panInfo.AddClasses("info-container");
+            panStoryInfo.AddClasses("row-container");
         }
 
         /// <summary>
@@ -850,6 +884,76 @@ namespace E.Story{
             {
                 node.DrawExtensionContainer();
             }
+        }
+    
+        /// <summary>
+        /// 更新故事信息
+        /// </summary>
+        public void UpdateStoryInfo()
+        {
+            UpdateVarCountInfo();
+            UpdateNodeCountInfo();
+            UpdateGroupCountInfo();
+            UpdateNoteCountInfo();
+            UpdateScaleInfo();
+        }
+
+        /// <summary>
+        /// 更新变量数量信息
+        /// </summary>
+        public void UpdateVarCountInfo()
+        {
+            lblVarCount.text = varPanel.VarDatas.Count + "变量";
+        }
+
+        /// <summary>
+        /// 更新节点数量信息
+        /// </summary>
+        public void UpdateNodeCountInfo()
+        {
+            lblNodeCount.text = nodes.Count() + "节点";
+        }
+
+        /// <summary>
+        /// 更新分组数量信息
+        /// </summary>
+        private void UpdateGroupCountInfo()
+        {
+            int count = 0;
+            graphElements.ForEach(element =>
+            {
+                if (element is BaseGroup group)
+                {
+                    count++;
+                    return;
+                }
+            });
+            lblGroupCount.text = count + "分组";
+        }
+
+        /// <summary>
+        /// 更新便签数量信息
+        /// </summary>
+        private void UpdateNoteCountInfo()
+        {
+            int count = 0;
+            graphElements.ForEach(element =>
+            {
+                if (element is BaseNote note)
+                {
+                    count++;
+                    return;
+                }
+            });
+            lblNoteCount.text = count + "便签";
+        }
+
+        /// <summary>
+        /// 更新缩放信息
+        /// </summary>
+        private void UpdateScaleInfo()
+        {
+            lblScale.text = string.Format("{0:F2}", scale) + "x";
         }
     }
 }

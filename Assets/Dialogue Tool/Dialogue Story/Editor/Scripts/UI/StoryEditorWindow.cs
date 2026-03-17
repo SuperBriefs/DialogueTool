@@ -63,6 +63,11 @@ namespace E.Story{
             OpenLastStory();
         }
 
+        private void OnInspectorUpdate()
+        {
+            graphView.UpdateStoryInfo();
+        }
+
         /// <summary>
         /// 添加工具栏
         /// </summary>
@@ -308,6 +313,7 @@ namespace E.Story{
                 graphView.ClearGraph();
                 graphView.AddDefaultNodes();
                 graphView.AddDefaultVarData();
+                graphView.UpdateStoryInfo();
                 // 重置文件名
                 UpdateFileName(defaultFileName);
 
@@ -326,6 +332,8 @@ namespace E.Story{
             {
                 graphView.ClearGraph();
                 graphView.AddDefaultNodes();
+                graphView.AddDefaultVarData();
+                graphView.UpdateStoryInfo();
 
                 string message = $"视图已清空";
                 ShowNotification(new GUIContent(message));

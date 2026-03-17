@@ -356,3 +356,14 @@ NavMap
     border-color:  var(--colors-dark-grey-6);
     background-color:  var(--colors-dark-grey-1);
 }
+
+/* -------------------------------------------------------信息面板 */
+
+/* 信息面板容器 */
+.info-container
+{
+    position: absolute;
+    left: var(--metrics-0);
+    bottom: var(--metrics-0);  
+    padding: var(--metrics-pixels-2);
+}
