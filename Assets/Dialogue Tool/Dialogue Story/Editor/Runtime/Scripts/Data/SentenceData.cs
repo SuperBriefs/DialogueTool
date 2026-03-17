@@ -9,7 +9,9 @@ namespace E.Story
     {
         [SerializeField] private string text;
 
-        // 句子文本
+        /// <summary>
+        /// 句子文本
+        /// </summary>
         public string Text { get => text; set => text = value; }
 
         /// <summary>

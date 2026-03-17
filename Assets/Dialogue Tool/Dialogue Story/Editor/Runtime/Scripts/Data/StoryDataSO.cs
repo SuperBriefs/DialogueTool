@@ -12,19 +12,29 @@ namespace E.Story
         [SerializeField] private List<VarData> varDatas;
         [SerializeField] private List<NoteData> noteDatas;
 
-        // 文件名称
+        /// <summary>
+        /// 文件名称
+        /// </summary>
         public string FileName { get => fileName; set => fileName = value; }
 
-        // 分组数据列表
+        /// <summary>
+        /// 分组数据列表
+        /// </summary>
         public List<GroupData> GroupDatas { get => groupDatas; set => groupDatas = value; }
 
-        // 节点数据列表
+        /// <summary>
+        /// 节点数据列表
+        /// </summary>
         public List<NodeData> NodeDatas { get => nodeDatas; set => nodeDatas = value; }
 
-        // 变量数据列表
+        /// <summary>
+        /// 变量数据列表
+        /// </summary>
         public List<VarData> VarDatas { get => varDatas; set => varDatas = value; }
         
-        // 标签数据列表
+        /// <summary>
+        /// 标签数据列表
+        /// </summary>
         public List<NoteData> NoteDatas { get => noteDatas ; set => NoteDatas = value; }
         
         /// <summary>

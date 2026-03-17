@@ -12,13 +12,19 @@ namespace E.Story
         [SerializeField] private string title;
         [SerializeField] private string content;
 
-        // 便签布局
+        /// <summary>
+        /// 便签布局
+        /// </summary>
         public Rect Layout { get => layout; set => layout = value; }
         
-        // 便签标题
+        /// <summary>
+        /// 便签标题
+        /// </summary>
         public string Title { get => title; set => title = value; }
 
-        // 便签内容
+        /// <summary>
+        /// 便签内容
+        /// </summary>
         public string Content { get => content; set => content = value; }
     }
 }

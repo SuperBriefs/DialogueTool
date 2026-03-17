@@ -24,40 +24,64 @@ namespace E.Story
         [SerializeField] private List<EditVarData> editVarDatas;
 
 
-        // 节点标题
+        /// <summary>
+        /// 节点标题
+        /// </summary>
         public string Title { get => title; set => title = value; }
         
-        // 节点GUID
+        /// <summary>
+        /// 节点GUID
+        /// </summary>
         public string GUID { get => guid; set => guid = value; }
 
-        // 节点类型
+        /// <summary>
+        /// 节点类型
+        /// </summary>
         public NodeType Type { get => type; set => type = value; }
 
-        // 节点坐标
+        /// <summary>
+        /// 节点坐标
+        /// </summary>
         public Vector2 Position { get => position; set => position = value; }
 
-        // 节点文本内容
+        /// <summary>
+        /// 节点文本内容
+        /// </summary>
         public string Note { get => note; set => note = value; }
 
-        // 选项视图列表
+        /// <summary>
+        /// 选项视图列表
+        /// </summary>
         public List<ChoiceData> ChoiceDatas { get => choiceDatas; set => choiceDatas = value; }
 
-        // 所属分组GUID
+        /// <summary>
+        /// 所属分组GUID
+        /// </summary>
         public string GroupID { get => groupID; set => groupID = value; }
 
-        // 背景图片
+        /// <summary>
+        /// 背景图片
+        /// </summary>
         public Sprite BGI { get => bgi; set => bgi = value; }
 
-        // 立绘
+        /// <summary>
+        /// 立绘
+        /// </summary>
         public Sprite Portrait { get => portrait; set => portrait = value; }
 
-        // 节点角色名称
+        /// <summary>
+        /// 节点角色名称
+        /// </summary>
         public string RoleName { get => roleName; set => roleName = value; }
 
-        // 句子列表
+        /// <summary>
+        /// 句子列表
+        /// </summary>
         public List<SentenceData> SentenceDatas { get => sentenceDatas; set => sentenceDatas = value; }
 
-        // 编辑变量列表
+        /// <summary>
+        /// 编辑变量列表
+        /// </summary>
         public List<EditVarData> EditVarDatas { get => editVarDatas; set => editVarDatas = value; }
     }
 }

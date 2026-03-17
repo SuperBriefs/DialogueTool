@@ -40,7 +40,7 @@ namespace E.Story
 
             addItemRequested = (bb) =>
             {
-                VarData varData = new("新变量");
+                VarData varData = new VarData("新变量");
                 VarDatas.Add(varData);
 
                 VisualElement lineContainer = CreateVarData(varData);

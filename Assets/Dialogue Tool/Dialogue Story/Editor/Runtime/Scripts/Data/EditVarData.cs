@@ -11,13 +11,19 @@ namespace E.Story
         [SerializeField] private int value;
         [SerializeField] private OperationType operation;
 
-        // 目标变量索引
+        /// <summary>
+        /// 目标变量索引
+        /// </summary>
         public int VarIndex { get => varIndex; set => varIndex = value; }
 
-        // 编辑值
+        /// <summary>
+        /// 编辑值
+        /// </summary>
         public int Value { get => value; set => this.value = value; }
 
-        // 编辑方式
+        /// <summary>
+        /// 编辑方式
+        /// </summary>
         public OperationType Operation { get => operation; set => operation = value; }
     }
 

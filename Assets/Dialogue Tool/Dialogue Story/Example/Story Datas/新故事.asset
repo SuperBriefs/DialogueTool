@@ -16,7 +16,7 @@ MonoBehaviour:
   groupDatas:
   - title: "\u5206\u7EC4"
     guid: af27c35776ac8a444b864bede5cee49f
-    position: {x: 161.59998, y: 93.600006}
+    position: {x: 161.6, y: 93.600006}
   nodeDatas:
   - title: "\u5F00\u59CB"
     guid: aa3f95e5d366ec644960c37440578d13
@@ -26,6 +26,8 @@ MonoBehaviour:
     choiceDatas:
     - text: "\u4E0B\u4E2A\u8282\u70B9"
       nextNodeID: 085ff21074065024394e96166b6d15f7
+      detectMode: 0
+      conditions: []
     groupID: 
     bgi: {fileID: 0}
     portrait: {fileID: 0}
@@ -52,6 +54,8 @@ MonoBehaviour:
     choiceDatas:
     - text: "\u4E0B\u4E2A\u8282\u70B9"
       nextNodeID: 085ff21074065024394e96166b6d15f7
+      detectMode: 0
+      conditions: []
     groupID: 
     bgi: {fileID: 21300000, guid: c587c35b0cb2db7459de341e35074163, type: 3}
     portrait: {fileID: 0}
@@ -78,6 +82,8 @@ MonoBehaviour:
     choiceDatas:
     - text: "\u4E0B\u4E2A\u8282\u70B9"
       nextNodeID: 76772862c92589b42b978521fc895793
+      detectMode: 0
+      conditions: []
     groupID: 
     bgi: {fileID: 0}
     portrait: {fileID: 0}
@@ -93,6 +99,8 @@ MonoBehaviour:
     choiceDatas:
     - text: "\u4E0B\u4E2A\u8282\u70B9"
       nextNodeID: d44d7fc60cda6014eac0109920e32acc
+      detectMode: 0
+      conditions: []
     groupID: 
     bgi: {fileID: 0}
     portrait: {fileID: 0}
@@ -107,6 +115,8 @@ MonoBehaviour:
     choiceDatas:
     - text: "\u4E0B\u4E2A\u8282\u70B9"
       nextNodeID: 6f40ad1c0d7e3af4d8773a807292dabb
+      detectMode: 0
+      conditions: []
     groupID: af27c35776ac8a444b864bede5cee49f
     bgi: {fileID: 0}
     portrait: {fileID: 21300000, guid: 49dc8b28b79610d4b83724277d910aec, type: 3}
@@ -117,22 +127,6 @@ MonoBehaviour:
     - text: "\u65B0\u53E5\u5B50"
     - text: "\u65B0\u53E5\u5B50"
     editVarDatas: []
-  - title: "\u5206\u652F"
-    guid: 2e55cef7acce58e47bb15ae27c42ffe8
-    type: 61
-    position: {x: 774.4, y: 81.600006}
-    note: "\u5907\u6CE8\u4FE1\u606F"
-    choiceDatas:
-    - text: "\u9009\u9879\u6587\u672C\u4E00"
-      nextNodeID: 01d0ed26d11ea6e418aa0f097d14b8ec
-    - text: "\u9009\u9879\u6587\u672C\u4E8C"
-      nextNodeID: 
-    groupID: 
-    bgi: {fileID: 0}
-    portrait: {fileID: 0}
-    roleName: 
-    sentenceDatas: []
-    editVarDatas: []
   - title: "\u7F16\u8F91\u53D8\u91CF"
     guid: 01d0ed26d11ea6e418aa0f097d14b8ec
     type: 53
@@ -141,6 +135,8 @@ MonoBehaviour:
     choiceDatas:
     - text: "\u4E0B\u4E2A\u8282\u70B9"
       nextNodeID: 
+      detectMode: 0
+      conditions: []
     groupID: 
     bgi: {fileID: 0}
     portrait: {fileID: 0}
@@ -153,6 +149,51 @@ MonoBehaviour:
     - varIndex: 0
       value: 0
       operation: 0
+  - title: "\u5206\u652F"
+    guid: 2e55cef7acce58e47bb15ae27c42ffe8
+    type: 61
+    position: {x: 748, y: 81.600006}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u9009\u9879\u6587\u672C\u4E00"
+      nextNodeID: 01d0ed26d11ea6e418aa0f097d14b8ec
+      detectMode: 0
+      conditions:
+      - varIndex: 0
+        value: 0
+        compare: 4
+    - text: "\u9009\u9879\u6587\u672C\u4E8C"
+      nextNodeID: 
+      detectMode: 1
+      conditions:
+      - varIndex: 1
+        value: 2
+        compare: 1
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+  - title: "\u7F16\u8F91\u53D8\u91CF"
+    guid: 8855aa17ba1c4614e81e71d985332913
+    type: 53
+    position: {x: 944, y: -116}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas:
+    - text: "\u4E0B\u4E2A\u8282\u70B9"
+      nextNodeID: 
+      detectMode: 0
+      conditions: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas:
+    - varIndex: 1
+      value: 5
+      operation: 1
   varDatas:
   - key: "\u6D4B\u8BD5\u53D8\u91CF\u4E00"
     value: 1

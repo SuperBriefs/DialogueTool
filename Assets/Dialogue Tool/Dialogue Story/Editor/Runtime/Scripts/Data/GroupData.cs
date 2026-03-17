@@ -11,13 +11,19 @@ namespace E.Story
         [SerializeField] private string guid;
         [SerializeField] private Vector2 position;
 
-        // 分组标题
+        /// <summary>
+        /// 分组标题
+        /// </summary>
         public string Title { get => title; set => title = value; }
 
-        // 分组GUID
+        /// <summary>
+        /// 分组GUID
+        /// </summary>
         public string GUID { get => guid; set => guid = value; }
 
-        // 分组坐标
+        /// <summary>
+        /// 分组坐标
+        /// </summary>
         public Vector2 Position { get => position; set => position = value; }
     }
 }

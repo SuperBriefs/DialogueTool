@@ -10,10 +10,14 @@ namespace E.Story
         [SerializeField] private string key;
         [SerializeField] private int value;
         
-        // 变量名
+        /// <summary>
+        /// 变量名
+        /// </summary>
         public string  Key { get => key; set => key = value; }
 
-        // 变量值
+        /// <summary>
+        /// 变量值
+        /// </summary>
         public int Value { get => value; set => this.value = value; }
 
         public VarData(string key, int value = 0)

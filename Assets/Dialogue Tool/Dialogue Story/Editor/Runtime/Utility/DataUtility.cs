@@ -3,8 +3,25 @@ using System.Collections.Generic;
 namespace E.Story
 {
     // 数据处理实用类
-    public class DataUtility
+    public static class DataUtility
     {
+        /// <summary>
+        /// 克隆条件数据列表
+        /// </summary>
+        /// <param name="oldDatas"></param>
+        /// <returns></returns>
+        public static List<ConditionData> CloneConditionDatas(List<ConditionData> oldDatas)
+        {
+            List<ConditionData> newDatas = new List<ConditionData>();
+            foreach(ConditionData data in oldDatas)
+            {
+                ConditionData newData = new ConditionData(data.VarIndex, data.Value, data.Compare);
+                newDatas.Add(newData);
+            }
+
+            return newDatas;
+        } 
+
         /// <summary>
         /// 克隆选择数据列表
         /// </summary>
@@ -15,7 +32,8 @@ namespace E.Story
             List<ChoiceData> newDatas = new List<ChoiceData>();
             foreach (ChoiceData data in oldDatas)
             {
-                ChoiceData newData = new ChoiceData(data.Text, data.NextNodeID);
+                List<ConditionData> conditionDatas = CloneConditionDatas(data.Conditions);
+                ChoiceData newData = new ChoiceData(data.Text, data.NextNodeID, data.DetectMode, conditionDatas);
                 newDatas.Add(newData);
             }
 
