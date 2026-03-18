@@ -48,5 +48,38 @@ namespace E.Story
             VarDatas = new List<VarData>();
             noteDatas = new List<NoteData>();
         }
+
+        /// <summary>
+        /// 获取开始节点
+        /// </summary>
+        /// <returns>开始节点</returns>
+        public NodeData GetStartNode()
+        {
+            foreach(NodeData nodeData in nodeDatas)
+            {
+                if(nodeData.Type == NodeType.Start)
+                {
+                    return nodeData;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 获取节点（根据节点的GUID）
+        /// </summary>
+        /// <param name="nodeID">节点的GUID</param>
+        /// <returns></returns>
+        public NodeData GetNode(string nodeID)
+        {
+            foreach(NodeData nodeData in nodeDatas)
+            {
+                if(nodeData.GUID == nodeID)
+                {
+                    return nodeData;
+                }
+            }
+            return null;
+        }
     }
 }
