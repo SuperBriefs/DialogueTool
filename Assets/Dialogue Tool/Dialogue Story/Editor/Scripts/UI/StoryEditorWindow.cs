@@ -211,7 +211,14 @@ namespace E.Story{
 
             // 创建图形文件
             storyData = IOUtility.CreateAsset<StoryDataSO>(storyDatasFolderPath, $"{fileName}");
-            storyData.Init(fileName);
+            if(storyData != null)
+            {
+                storyData.Init(fileName);
+            }
+            else
+            {
+                return;
+            }
 
             // 保存数据
             SaveDatas();
@@ -521,6 +528,11 @@ namespace E.Story{
                 {
                     EditVarNode eNode = node as EditVarNode;
                     eNode.EditVarDatas = DataUtility.CloneEditVarDatas(nodeData.EditVarDatas);
+                }
+                else if(node.Type == NodeType.Skip)
+                {
+                    SkipNode sNode = node as SkipNode;
+                    sNode.nextStoryDataSO = nodeData.NextStoryDataSO;
                 }
 
                 // 绘制节点

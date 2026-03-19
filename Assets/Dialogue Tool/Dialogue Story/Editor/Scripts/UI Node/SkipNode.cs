@@ -4,17 +4,17 @@ using UnityEngine.UIElements;
 
 namespace E.Story
 {
-    public class BGINode : SingleInSingleOutNode
+    public class SkipNode : SingleInZeroOutNode
     {
-        // 背景图片
-        public Sprite BGI{ get; set; }
+        // 跳转的目标视图
+        public StoryDataSO nextStoryDataSO;
 
         public override void Init(StoryGraphView graphView, string title, Vector2 position)
         {
             base.Init(graphView, title, position);
 
             // 重设属性默认值
-            Type = NodeType.BGI;
+            Type = NodeType.Skip;
         }
 
         public override void DrawExtensionContainer()
@@ -23,18 +23,14 @@ namespace E.Story
             customDataContainer = new VisualElement();
             // 创建折叠框
             foldout = ElementUtility.CreateFoldout("节点内容");
-            // 创建角色立绘预览
-            Image imgBGI = ElementUtility.CreateaImage(BGI);
-            // 创建背景图片选择字段
-            ObjectField objBGI = ElementUtility.CreateObjectField(typeof(Sprite), BGI, null, (callback) =>
+            // 创建故事数据选择字段
+            ObjectField objStory = ElementUtility.CreateObjectField(typeof(StoryDataSO), nextStoryDataSO, null, (callback) =>
             {
-                BGI = callback.newValue as Sprite;
-                imgBGI.sprite = BGI;
+                nextStoryDataSO = callback.newValue as StoryDataSO;
             });
 
             // 放置UI元素
-            foldout.Add(objBGI);
-            foldout.Add(imgBGI);
+            foldout.Add(objStory);
             customDataContainer.Add(foldout);
             extensionContainer.Add(customDataContainer);
 
@@ -43,14 +39,9 @@ namespace E.Story
             (
                 "node__custom-data-container"
             );
-            objBGI.AddClasses
+            objStory.AddClasses
             (
                 "foldout-item"
-            );
-            imgBGI.AddClasses
-            (
-                "foldout-item",
-                "bgi-image"
             );
 
             RefreshExpandedState();
@@ -58,8 +49,8 @@ namespace E.Story
 
         public override NodeData GetNodeData()
         {
-            NodeData nodeData = base.GetNodeData();
-            nodeData.BGI = BGI;
+            NodeData nodeData  = base.GetNodeData();
+            nodeData.NextStoryDataSO = nextStoryDataSO;
 
             return nodeData;
         }

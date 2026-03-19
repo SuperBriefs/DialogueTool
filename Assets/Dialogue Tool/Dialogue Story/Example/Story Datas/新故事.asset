@@ -16,7 +16,7 @@ MonoBehaviour:
   groupDatas:
   - title: "\u5206\u7EC4"
     guid: af27c35776ac8a444b864bede5cee49f
-    position: {x: 161.6, y: 93.600006}
+    position: {x: 161.59999, y: 93.59999}
   nodeDatas:
   - title: "\u5F00\u59CB"
     guid: aa3f95e5d366ec644960c37440578d13
@@ -34,6 +34,7 @@ MonoBehaviour:
     roleName: 
     sentenceDatas: []
     editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
   - title: "\u7ED3\u675F"
     guid: 6f40ad1c0d7e3af4d8773a807292dabb
     type: 31
@@ -46,6 +47,7 @@ MonoBehaviour:
     roleName: 
     sentenceDatas: []
     editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
   - title: "\u80CC\u666F\u56FE\u7247"
     guid: 40760115f8c19bf4480db2132c23ac5b
     type: 52
@@ -62,6 +64,7 @@ MonoBehaviour:
     roleName: 
     sentenceDatas: []
     editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
   - title: "\u7ED3\u675F"
     guid: d44d7fc60cda6014eac0109920e32acc
     type: 31
@@ -74,6 +77,7 @@ MonoBehaviour:
     roleName: 
     sentenceDatas: []
     editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
   - title: "\u5BF9\u8BDD"
     guid: 38de825aa098052429785e216a8bf5c0
     type: 51
@@ -91,6 +95,7 @@ MonoBehaviour:
     sentenceDatas:
     - text: "\u53D1\u8A00\u5185\u5BB9"
     editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
   - title: "\u5E03\u5C40"
     guid: 76772862c92589b42b978521fc895793
     type: 59
@@ -107,6 +112,7 @@ MonoBehaviour:
     roleName: 
     sentenceDatas: []
     editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
   - title: "\u5BF9\u8BDD"
     guid: 085ff21074065024394e96166b6d15f7
     type: 51
@@ -127,6 +133,7 @@ MonoBehaviour:
     - text: "\u65B0\u53E5\u5B50"
     - text: "\u65B0\u53E5\u5B50"
     editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
   - title: "\u7F16\u8F91\u53D8\u91CF"
     guid: 01d0ed26d11ea6e418aa0f097d14b8ec
     type: 53
@@ -149,6 +156,7 @@ MonoBehaviour:
     - varIndex: 0
       value: 0
       operation: 0
+    nextStoryDataSO: {fileID: 0}
   - title: "\u5206\u652F"
     guid: 2e55cef7acce58e47bb15ae27c42ffe8
     type: 61
@@ -163,7 +171,7 @@ MonoBehaviour:
         value: 0
         compare: 4
     - text: "\u9009\u9879\u6587\u672C\u4E8C"
-      nextNodeID: 
+      nextNodeID: 5701c5790e404454580c8bcc49fac711
       detectMode: 1
       conditions:
       - varIndex: 1
@@ -175,6 +183,7 @@ MonoBehaviour:
     roleName: 
     sentenceDatas: []
     editVarDatas: []
+    nextStoryDataSO: {fileID: 0}
   - title: "\u7F16\u8F91\u53D8\u91CF"
     guid: 8855aa17ba1c4614e81e71d985332913
     type: 53
@@ -194,6 +203,20 @@ MonoBehaviour:
     - varIndex: 1
       value: 5
       operation: 1
+    nextStoryDataSO: {fileID: 0}
+  - title: "\u8DF3\u8F6C"
+    guid: 5701c5790e404454580c8bcc49fac711
+    type: 60
+    position: {x: 1039.2, y: 312.8}
+    note: "\u5907\u6CE8\u4FE1\u606F"
+    choiceDatas: []
+    groupID: 
+    bgi: {fileID: 0}
+    portrait: {fileID: 0}
+    roleName: 
+    sentenceDatas: []
+    editVarDatas: []
+    nextStoryDataSO: {fileID: 11400000}
   varDatas:
   - key: "\u6D4B\u8BD5\u53D8\u91CF\u4E00"
     value: 1

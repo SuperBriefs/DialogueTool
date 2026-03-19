@@ -82,6 +82,11 @@ namespace E.Story
                     level = 1,
                     userData = NodeType.End
                 },
+                new SearchTreeEntry(new GUIContent("跳转", indentationIcon))
+                {
+                    level = 1,
+                    userData = NodeType.Skip
+                },
                 new SearchTreeEntry(new GUIContent("布局", indentationIcon))
                 {
                     level = 1,
@@ -115,6 +120,7 @@ namespace E.Story
                 case NodeType.EditVar:
                 case NodeType.Start:
                 case NodeType.End:
+                case NodeType.Skip:
                 case NodeType.Layout:
                     graphViewer.CreateNode(SearchTreeEntry.content.text, type, localMousePosition);
                     return true;

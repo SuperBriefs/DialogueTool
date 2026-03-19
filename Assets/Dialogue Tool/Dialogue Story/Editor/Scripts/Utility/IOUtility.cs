@@ -50,6 +50,16 @@ namespace E.Story
                 asset = ScriptableObject.CreateInstance<T>();
                 AssetDatabase.CreateAsset(asset, fullPath);
             }
+            // 若文件存在，提示使用者，避免操作失误覆盖数据
+            else
+            {
+                string str = "故事名称重复，请确认是否覆盖。";
+                if(!EditorUtility.DisplayDialog("警告", str, "确认", "取消"))
+                {
+                    // 不创建资产文件
+                    asset = null;
+                }
+            }
 
             return asset;
         }

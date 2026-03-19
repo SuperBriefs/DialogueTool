@@ -23,6 +23,8 @@ namespace E.Story
         [SerializeField] private List<SentenceData> sentenceDatas;
         [SerializeField] private List<EditVarData> editVarDatas;
 
+        [SerializeField] private StoryDataSO nextStoryDataSO;
+
 
         /// <summary>
         /// 节点标题
@@ -83,5 +85,10 @@ namespace E.Story
         /// 编辑变量列表
         /// </summary>
         public List<EditVarData> EditVarDatas { get => editVarDatas; set => editVarDatas = value; }
+
+        /// <summary>
+        /// 跳转到的目标视图
+        /// </summary>
+        public StoryDataSO NextStoryDataSO { get => nextStoryDataSO; set => nextStoryDataSO = value; }
     }
 }

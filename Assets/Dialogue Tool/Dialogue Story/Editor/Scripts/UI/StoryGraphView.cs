@@ -746,6 +746,11 @@ namespace E.Story{
                         EditVarNode eNode = node as EditVarNode;
                         eNode.EditVarDatas = DataUtility.CloneEditVarDatas(nodeData.EditVarDatas);
                     }
+                    else if(node.Type == NodeType.Skip)
+                    {
+                        SkipNode sNode = node as SkipNode;
+                        sNode.nextStoryDataSO = nodeData.NextStoryDataSO;
+                    }
 
                     // 绘制节点
                     node.Draw();
