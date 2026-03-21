@@ -48,7 +48,7 @@ namespace E.Story
             });
 
             // 创建角色立绘预览
-            Image imgPortrait = ElementUtility.CreateaImage(Portrait);
+            Image imgPortrait = ElementUtility.CreateImage(Portrait);
             // 创建角色立绘选择字段
             ObjectField objPortrait = ElementUtility.CreateObjectField(typeof(Sprite), Portrait, null, (callback) =>
             {

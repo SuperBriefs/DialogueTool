@@ -25,6 +25,9 @@ namespace E.Story
 
         [SerializeField] private StoryDataSO nextStoryDataSO;
 
+        [SerializeField] private QuestSO toGetQuest;
+        [SerializeField] private QuestSO toCheckQuest;
+
 
         /// <summary>
         /// 节点标题
@@ -90,5 +93,14 @@ namespace E.Story
         /// 跳转到的目标视图
         /// </summary>
         public StoryDataSO NextStoryDataSO { get => nextStoryDataSO; set => nextStoryDataSO = value; }
+
+        /// <summary>
+        /// 要通过节点获取的任务
+        /// </summary>
+        public QuestSO ToGetQuest { get => toGetQuest; set => toGetQuest = value; }
+        /// <summary>
+        /// 要检测是否完成的任务
+        /// </summary>
+        public QuestSO ToCheckQuest { get => toCheckQuest; set => toCheckQuest = value; }
     }
 }

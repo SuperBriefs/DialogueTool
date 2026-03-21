@@ -751,6 +751,16 @@ namespace E.Story{
                         SkipNode sNode = node as SkipNode;
                         sNode.nextStoryDataSO = nodeData.NextStoryDataSO;
                     }
+                    else if(node.Type == NodeType.GetQuest)
+                    {
+                        GetQuestNode sNode = node as GetQuestNode;
+                        sNode.toGetQuest = nodeData.ToGetQuest;
+                    }
+                    else if(node.Type == NodeType.CheckQuest)
+                    {
+                        CheckQuestNode cNode = node as CheckQuestNode;
+                        cNode.toCheckQuest = nodeData.ToCheckQuest;
+                    }
 
                     // 绘制节点
                     node.Draw();

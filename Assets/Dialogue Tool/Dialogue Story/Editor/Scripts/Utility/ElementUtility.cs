@@ -15,7 +15,7 @@ namespace E.Story{
         /// <returns>标签</returns>
         public static Label CreateLabel(string text)
         {
-            Label label = new(text);
+            Label label = new Label(text);
             return label;
         }
 
@@ -185,7 +185,7 @@ namespace E.Story{
         /// </summary>
         /// <param name="sprite">图片</param>
         /// <returns>图片预览区域</returns>
-        public static Image CreateaImage(Sprite sprite)
+        public static Image CreateImage(Sprite sprite)
         {
             Image image = new Image()
             {

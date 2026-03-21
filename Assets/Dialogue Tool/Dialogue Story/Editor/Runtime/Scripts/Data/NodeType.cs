@@ -77,5 +77,13 @@ namespace E.Story
         /// 分支
         /// </summary>
         Branch = 61,
+        /// <summary>
+        /// 获取任务
+        /// </summary>
+        GetQuest = 71,
+        /// <summary>
+        /// 判断任务
+        /// </summary>
+        CheckQuest = 72,
     }
 }
